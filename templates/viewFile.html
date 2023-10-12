@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}{{file.filename}}{% endblock %}
+{% block body %}
+<div class="viewMain">
+    <img src="data:image/png;base64,{{ file.file_data }}" alt="Preview">
+    <h1>{{file.filename}}</h1>
+    <p>{{file.fileDescription}}</p>
+    <span>
+        <a href="{{url_for('download', id=file.id)}}" class="btn btn-primary" id="downloadBtn">Download</a>
+        <a href="{{url_for('deleteFile', id=file.id)}}" id="deleteBtn" class="btn btn-danger">Delete</a>
+    </span>
+</div>
+{% endblock %}
